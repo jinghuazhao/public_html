@@ -1,0 +1,68 @@
+#!/bin/bash 
+
+
+#SBATCH --job-name capping_mq
+#SBATCH --account BUTTERWORTH-SL3-CPU
+#SBATCH --partition icelake
+#SBATCH --time=3:00:00
+#SBATCH --mail-type=NONE
+#SBATCH --array=2
+#SBATCH --output=/rds/project/jmmh2/rds-jmmh2-pre_qc_data/cptac/slurm/capping_mq_%A_%a.o
+#SBATCH --error=/rds/project/jmmh2/rds-jmmh2-pre_qc_data/cptac/slurm/capping_mq_%A_%a.e
+
+. /etc/profile.d/modules.sh
+module purge
+module load rhel8/default-icl
+module load samtools/1.14/gcc/v46lwk2d
+
+#to look at the MQ vals of a particular Bam file
+#samtools view 925a6f92-a5cd-4b65-8fe4-11ff3c4efd2b_gdc_realn.bam | cut -f 5 | sort | uniq  -c | sort -n | awk '{printf("MAPQ:%s\t%d\n",$2,$1);}' | gnuplot -e " set terminal dumb ;set nokey; plot '-' using 2:xtic(1) with boxes"
+
+#NOT RUN: how I made the sample info txt that contains the paths per file too (sample_freemix_bampath.txt file from the compiled freemix file)
+#awk 'NR == 1 {OFS="\t"; print $0, "path"} NR > 1 {print $1, $2, "/rds/user/ejn45/rds-pre_qc_data-MkfvQMuSUxk/cptac/temp_CPTAC_GDC/renal/blood_genomes/" $1 ".bam"}' /rds/user/ejn45/rds-pre_qc_data-MkfvQMuSUxk/cptac/variant_calling/freemix_output/sample_freemix.txt > sample_freemix_bampath.txt
+
+
+# Assuming you have a file with sample names, free-mix scores, and BAM file paths
+# in tab-separated format. Adjust the file name accordingly.
+
+
+export input_file=~/rds/rds-pre_qc_data-MkfvQMuSUxk/cptac/variant_calling/freemix_output/sample_freemix_bampath.txt
+
+echo "The value of input_file is: $input_file"
+
+
+# Extracting values from the single line
+export sample_name=$(awk 'NR==ENVIRON["SLURM_ARRAY_TASK_ID"] {print $1}' $input_file)
+export free_mix_score=$(awk 'NR==ENVIRON["SLURM_ARRAY_TASK_ID"] {print $2}' $input_file)
+export bam_file=$(awk 'NR==ENVIRON["SLURM_ARRAY_TASK_ID"] {gsub(/\/rds\/user\/ejn45/,"~/rds",$3);print $3}' $input_file)
+export dir=$(dirname $bam_file)
+export dir=~/rds/rds-pre_qc_data-MkfvQMuSUxk/cptac/temp_CPTAC_GDC/renal/blood_genomes
+export f=$(basename $bam_file)
+
+# Convert free-mix score to MQ score using awk
+export threshold=$(awk -v free_mix_score=${free_mix_score} 'BEGIN {print -10 * log(free_mix_score) / log(10)}')
+
+
+echo "Sample: $sample_name"
+echo "BamFile: $bam_file"
+echo "Free-mix score: $free_mix_score"
+echo "Threshold (MQ Score): $threshold"
+
+
+# Cap MQ values in the BAM file
+export cwd=${PWD}
+cd ${dir}
+cat $f | \
+samtools view -h - | awk -v threshold=$threshold '{
+    for (i = 1; i <= NF; ++i) {
+        if ($i ~ /^MQ:/) {
+            mq_field = substr($i, 4);
+            # Cap the MQ value if it is higher than the threshold
+            if (mq_field > threshold) {
+                $i = "MQ:" threshold;
+            }
+        }
+    }
+    print;
+}' | samtools view -bS - > ${cwd}/${sample_name}_capped.bam
+cd -

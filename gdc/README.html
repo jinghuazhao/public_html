@@ -1,0 +1,44 @@
+<h2 id="gdc-data-downloads">GDC data downloads</h2>
+<h3 id="gdc_array_v4.bash">gdc_array_v4.bash</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="co">#!/usr/bin/bash</span></a>
+<a class="sourceLine" id="cb1-2" title="2"></a>
+<a class="sourceLine" id="cb1-3" title="3"><span class="co">#SBATCH --job-name gdc_array</span></a>
+<a class="sourceLine" id="cb1-4" title="4"><span class="co">#SBATCH --account BUTTERWORTH-SL3-CPU</span></a>
+<a class="sourceLine" id="cb1-5" title="5"><span class="co">#SBATCH --partition icelake-himem</span></a>
+<a class="sourceLine" id="cb1-6" title="6"><span class="co">#SBATCH --time=10:00:00</span></a>
+<a class="sourceLine" id="cb1-7" title="7"><span class="co">#SBATCH --mail-type=NONE</span></a>
+<a class="sourceLine" id="cb1-8" title="8"><span class="co">#SBATCH --array=1-386</span></a>
+<a class="sourceLine" id="cb1-9" title="9"><span class="co">#SBATCH --output=/rds/project/jmmh2/rds-jmmh2-pre_qc_data/cptac/slurm/_gdc_%A_%a.o</span></a>
+<a class="sourceLine" id="cb1-10" title="10"><span class="co">#SBATCH --error=/rds/project/jmmh2/rds-jmmh2-pre_qc_data/cptac/slurm/_gdc_%A_%a.e</span></a>
+<a class="sourceLine" id="cb1-11" title="11"></a>
+<a class="sourceLine" id="cb1-12" title="12"><span class="bu">.</span> <span class="ex">/etc/profile.d/modules.sh</span></a>
+<a class="sourceLine" id="cb1-13" title="13"><span class="ex">module</span> purge</a>
+<a class="sourceLine" id="cb1-14" title="14"><span class="ex">module</span> load rhel8/default-icl</a>
+<a class="sourceLine" id="cb1-15" title="15"><span class="ex">module</span> load ceuadmin/gdc</a>
+<a class="sourceLine" id="cb1-16" title="16"></a>
+<a class="sourceLine" id="cb1-17" title="17"><span class="bu">export</span> <span class="va">renal=</span>~/rds/pre_qc_data/cptac/temp_CPTAC_GDC/renal</a>
+<a class="sourceLine" id="cb1-18" title="18"><span class="fu">awk</span> <span class="st">&#39;NR==1||NR==ENVIRON[&quot;SLURM_ARRAY_TASK_ID&quot;]+1&#39;</span> <span class="va">${renal}</span>/scripts_and_tokens/kidney_gdc_manifest.2023-12-01.txt <span class="op">&gt;</span> kidney-<span class="va">${SLURM_ARRAY_TASK_ID}</span>.manifest</a>
+<a class="sourceLine" id="cb1-19" title="19"></a>
+<a class="sourceLine" id="cb1-20" title="20"><span class="ex">gdc-client</span> download -m kidney-<span class="va">${SLURM_ARRAY_TASK_ID}</span>.manifest -t <span class="va">${renal}</span>/scripts_and_tokens/gdc-user-token.2023-11-30T13_15_20.115Z.txt</a></code></pre></div>
+<p>This would generate a temporary file associated with each job. Note that the array task id is read as <code>ENVIRON["SLURM_ARRAY_TASK_ID"]</code> inside <code>awk</code>.</p>
+<h3 id="dc_array_v4.1.bash">dc_array_v4.1.bash</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="co">#!/usr/bin/bash</span></a>
+<a class="sourceLine" id="cb2-2" title="2"></a>
+<a class="sourceLine" id="cb2-3" title="3"><span class="co">#SBATCH --job-name gdc_array</span></a>
+<a class="sourceLine" id="cb2-4" title="4"><span class="co">#SBATCH --account BUTTERWORTH-SL3-CPU</span></a>
+<a class="sourceLine" id="cb2-5" title="5"><span class="co">#SBATCH --partition icelake-himem</span></a>
+<a class="sourceLine" id="cb2-6" title="6"><span class="co">#SBATCH --time=10:00:00</span></a>
+<a class="sourceLine" id="cb2-7" title="7"><span class="co">#SBATCH --mail-type=NONE</span></a>
+<a class="sourceLine" id="cb2-8" title="8"><span class="co">#SBATCH --array=1-386</span></a>
+<a class="sourceLine" id="cb2-9" title="9"><span class="co">#SBATCH --output=/rds/project/jmmh2/rds-jmmh2-pre_qc_data/cptac/slurm/_gdc_%A_%a.o</span></a>
+<a class="sourceLine" id="cb2-10" title="10"><span class="co">#SBATCH --error=/rds/project/jmmh2/rds-jmmh2-pre_qc_data/cptac/slurm/_gdc_%A_%a.e</span></a>
+<a class="sourceLine" id="cb2-11" title="11"></a>
+<a class="sourceLine" id="cb2-12" title="12"><span class="bu">.</span> <span class="ex">/etc/profile.d/modules.sh</span></a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="ex">module</span> purge</a>
+<a class="sourceLine" id="cb2-14" title="14"><span class="ex">module</span> load rhel8/default-icl</a>
+<a class="sourceLine" id="cb2-15" title="15"><span class="ex">module</span> load ceuadmin/gdc</a>
+<a class="sourceLine" id="cb2-16" title="16"></a>
+<a class="sourceLine" id="cb2-17" title="17"><span class="bu">export</span> <span class="va">renal=</span>~/rds/pre_qc_data/cptac/temp_CPTAC_GDC/renal</a>
+<a class="sourceLine" id="cb2-18" title="18"><span class="ex">gdc-client</span> download -m <span class="op">&lt;(</span><span class="fu">awk</span> <span class="st">&#39;NR==1||NR==n+1&#39;</span> n=<span class="va">${SLURM_ARRAY_TASK_ID}</span> <span class="va">${renal}</span>/scripts_and_tokens/kidney_gdc_manifest.2023-12-01.txt<span class="op">)</span> \</a>
+<a class="sourceLine" id="cb2-19" title="19">                    -t <span class="va">${renal}</span>/scripts_and_tokens/gdc-user-token.2023-11-30T13_15_20.115Z.txt</a></code></pre></div>
+<p>This is an attempt to get away with the temporary file. Note that the array task id is specified just before the master manifest filename (no need for -v in front).</p>
