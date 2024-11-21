@@ -1,0 +1,4 @@
+curl https://api.openai.com/v1/files \
+  -H "Authorization: Bearer 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" \
+  -F "purpose=fine-tune" \
+  -F "file=data" 
