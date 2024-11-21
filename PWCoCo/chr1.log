@@ -1,0 +1,28 @@
+PLINK v1.90p 64-bit (2 Apr 2022)
+Options in effect:
+  --chr 1
+  --from-bp 247469995
+  --make-bed
+  --out chr1
+  --to-bp 247722023
+  --vcf /home/jhz22/rds/public_databases/1000G/ALL.chr1.phase3_shapeit2_mvncall_integrated_v5a.20130502.genotypes.vcf.gz
+
+Hostname: login-p-3
+Working directory: /rds/user/jhz22/hpc-work/people/nick
+Start time: Thu Dec 21 18:03:52 2023
+
+Random number seed: 1703181832
+191855 MB RAM detected; reserving 95927 MB for main workspace.
+--vcf: chr1-temporary.bed + chr1-temporary.bim + chr1-temporary.fam written.
+8087 out of 6468094 variants loaded from .bim file.
+2504 people (0 males, 0 females, 2504 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to chr1.nosex .
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 2504 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.999703.
+8087 variants and 2504 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to chr1.bed + chr1.bim + chr1.fam ... done.
+
+End time: Thu Dec 21 18:07:26 2023

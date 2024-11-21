@@ -1,0 +1,34 @@
+[2023-12-23 11:58:41.014] [pwcoco_log] [info] Summary stats 1 is treated as a file.
+[2023-12-23 11:58:41.015] [pwcoco_log] [info] Summary stats 2 is treated as a file.
+[2023-12-23 11:58:41.015] [pwcoco_log] [info] OpenMP will attempt to use up to 6 threads.
+[2023-12-23 11:58:41.015] [pwcoco_log] [info] Reading data from phenotype file: nlrp3_new.tsv.
+[2023-12-23 11:58:41.015] [pwcoco_log] [warning] It is preferable to use the full summary statistics to estimate the phenotype variance; you can ignore this warning if the summary statistics file you have provided are the full summary statistics.
+[2023-12-23 11:58:41.015] [pwcoco_log] [warning] You can calculate the full phenotype variance by using either the '--pve' flag or '--pve_file' flag.
+[2023-12-23 11:58:41.029] [pwcoco_log] [info] Read a total of: 1071 lines in phenotype file nlrp3_new.tsv.
+[2023-12-23 11:58:41.030] [pwcoco_log] [info] Phenotypic variance estimated from summary statistcs of all SNPs: 1.00
+[2023-12-23 11:58:41.030] [pwcoco_log] [info] Reading data from phenotype file: crp_new.tsv.
+[2023-12-23 11:58:41.030] [pwcoco_log] [warning] It is preferable to use the full summary statistics to estimate the phenotype variance; you can ignore this warning if the summary statistics file you have provided are the full summary statistics.
+[2023-12-23 11:58:41.030] [pwcoco_log] [warning] You can calculate the full phenotype variance by using either the '--pve' flag or '--pve_file' flag.
+[2023-12-23 11:58:41.043] [pwcoco_log] [info] Read a total of: 1071 lines in phenotype file crp_new.tsv.
+[2023-12-23 11:58:41.043] [pwcoco_log] [info] Phenotypic variance estimated from summary statistcs of all SNPs: 1.00
+[2023-12-23 11:58:41.074] [pwcoco_log] [info] Colocalisation analysis initialised with 1071 SNPs.
+[2023-12-23 11:58:41.076] [pwcoco_log] [info] Unconditioned colocalisation results.
+[2023-12-23 11:58:41.076] [pwcoco_log] [info] H0: 0.00; H1: 0.00; H2: 0.00; H3: 0.00; H4: 1.00; abf_all: 1087.28.
+[2023-12-23 11:58:41.077] [pwcoco_log] [info] Stopping algorthim as H4 for initial colocalisation analysis is already at or above threshold (80.0%).
+[2023-12-23 11:58:41.096] [pwcoco_log] [info] Summary stats 1 is treated as a file.
+[2023-12-23 11:58:41.096] [pwcoco_log] [info] Summary stats 2 is treated as a file.
+[2023-12-23 11:58:41.096] [pwcoco_log] [info] OpenMP will attempt to use up to 6 threads.
+[2023-12-23 11:58:41.097] [pwcoco_log] [info] Reading data from phenotype file: nlrp3.tsv.
+[2023-12-23 11:58:41.097] [pwcoco_log] [warning] It is preferable to use the full summary statistics to estimate the phenotype variance; you can ignore this warning if the summary statistics file you have provided are the full summary statistics.
+[2023-12-23 11:58:41.097] [pwcoco_log] [warning] You can calculate the full phenotype variance by using either the '--pve' flag or '--pve_file' flag.
+[2023-12-23 11:58:41.111] [pwcoco_log] [info] Read a total of: 1072 lines in phenotype file nlrp3.tsv.
+[2023-12-23 11:58:41.111] [pwcoco_log] [info] Phenotypic variance estimated from summary statistcs of all SNPs: 1.00
+[2023-12-23 11:58:41.111] [pwcoco_log] [info] Reading data from phenotype file: crp.tsv.
+[2023-12-23 11:58:41.111] [pwcoco_log] [warning] It is preferable to use the full summary statistics to estimate the phenotype variance; you can ignore this warning if the summary statistics file you have provided are the full summary statistics.
+[2023-12-23 11:58:41.111] [pwcoco_log] [warning] You can calculate the full phenotype variance by using either the '--pve' flag or '--pve_file' flag.
+[2023-12-23 11:58:41.124] [pwcoco_log] [info] Read a total of: 1072 lines in phenotype file crp.tsv.
+[2023-12-23 11:58:41.124] [pwcoco_log] [info] Phenotypic variance estimated from summary statistcs of all SNPs: 1.00
+[2023-12-23 11:58:41.157] [pwcoco_log] [info] Colocalisation analysis initialised with 1072 SNPs.
+[2023-12-23 11:58:41.158] [pwcoco_log] [info] Unconditioned colocalisation results.
+[2023-12-23 11:58:41.158] [pwcoco_log] [info] H0: 0.00; H1: 0.00; H2: 0.00; H3: 0.00; H4: 1.00; abf_all: 1087.28.
+[2023-12-23 11:58:41.160] [pwcoco_log] [info] Stopping algorthim as H4 for initial colocalisation analysis is already at or above threshold (80.0%).

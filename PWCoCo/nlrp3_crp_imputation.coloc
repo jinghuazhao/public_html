@@ -1,0 +1,2 @@
+Dataset1	Dataset2	SNP1	SNP2	H0	H1	H2	H3	H4	log_abf_all
+nlrp3_new.tsv	crp_new.tsv	unconditioned	unconditioned	0	2.50985e-238	2.50985e-238	2.44982e-07	1	1087.28

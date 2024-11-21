@@ -1,0 +1,11 @@
+Good evening Jing Hua,
+
+I am sending you a tar file which contains the output of my PWCoCo run. I am somewhat confused by the contents of the log file (nlrp3_crp_pwcoco_log.txt). Here is what confuses me the most:
+
+Many SNPs that seem to be selected by COJO (as identified by the lines in the log file saying "Selected entry SNP XY"), are later not used in the Coloc analysis (i.e. there is no line in the log file saying "Conditioned results for SNP1: XY, SNP2: ZY") an example for such a SNP is 1_247578441_A_G for the nlrp3_signal. Furthermore, there is no .cojo output file with the SNP ID in the filename, which should exist if it was selected by PWCoCo.
+
+I have used the following command to run PWCoCo:
+
+/rds/user/nh608/hpc-work/software/pwcoco/build/pwcoco --bfile /rds/user/nh608/hpc-work/datasets/1000g/GRCh37/1000g_autosomes_GRCh37 --sum_stats1 nlrp3_signal.tsv --sum_stat2 crp_signal.tsv --maf 0.01 --threads 6 --out_cond --out nlrp3_crp_pwcocoI have also attached the nlrp3_signal.tsv and crp_signal.tsv file.
+
+As I mentioned before, I know that you are very busy, so you really do not have to look into this "issue" if you do not have the time! I already wrote the authors and hope that they will get back to me soon :slightly_smiling_face: .

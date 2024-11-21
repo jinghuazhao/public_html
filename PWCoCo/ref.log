@@ -1,0 +1,26 @@
+PLINK v1.90p 64-bit (8 Nov 2021)
+Options in effect:
+  --bfile chr1
+  --extract rsid.lst
+  --make-bed
+  --out ref
+
+Hostname: login-p-3
+Working directory: /rds/user/jhz22/hpc-work/people/nick
+Start time: Sat Dec 23 12:00:52 2023
+
+Random number seed: 1703332852
+191855 MB RAM detected; reserving 95927 MB for main workspace.
+8087 variants loaded from .bim file.
+2504 people (0 males, 0 females, 2504 ambiguous) loaded from .fam.
+Ambiguous sex IDs written to ref.nosex .
+--extract: 1071 variants remaining.
+Using 1 thread (no multithreaded calculations invoked).
+Before main variant filters, 2504 founders and 0 nonfounders present.
+Calculating allele frequencies... done.
+Total genotyping rate is 0.999571.
+1071 variants and 2504 people pass filters and QC.
+Note: No phenotypes present.
+--make-bed to ref.bed + ref.bim + ref.fam ... done.
+
+End time: Sat Dec 23 12:00:52 2023
