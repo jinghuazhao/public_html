@@ -36,4 +36,4 @@ do
   git commit -m "${f}"
 done
 git push
-du -h --exclude .git --exclude docs
+du -h --exclude .git --exclude grav
