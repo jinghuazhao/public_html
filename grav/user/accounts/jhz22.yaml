@@ -1,0 +1,17 @@
+state: enabled
+email: jhz22@cam.ac.uk
+fullname: 'Jing Hua Zhao'
+title: Dr
+hashed_password: $2y$10$QiuxJU5DQ3qipq.NFeyfk.CstHm/e71AG6AVchMPe8GTjKFephHOW
+language: en
+content_editor: default
+twofa_enabled: false
+twofa_secret: GGVPHN73WMKRVPEFIIFZKSOSTWK3RPVF
+avatar: {  }
+access:
+  site:
+    login: true
+  admin:
+    login: true
+    super: true
+    pages: true
