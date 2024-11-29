@@ -9,8 +9,8 @@ function create_github_repository()
   export name=public_html
 }
 
-create_github_repository
-
+function rest()
+{
 # 1. create the repository
   curl -X POST -u $user:$token -H "$header" -d '{"name": "'"$name"'"}' $API/user/repos
 
@@ -28,6 +28,10 @@ create_github_repository
   git branch -M main
   git remote add origin git@github.com:jinghuazhao/public_html.git
   git push --set-upstream origin main
+}
+
+# create_github_repository
+# rest
 
 for f in $(ls)
 do
@@ -36,4 +40,4 @@ do
   git commit -m "${f}"
 done
 git push
-du -h --exclude .git --exclude grav
+du -h --exclude .git --exclude grav --exclude adams_team
