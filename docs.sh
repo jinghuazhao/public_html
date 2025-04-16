@@ -30,6 +30,13 @@ function rest()
   git push --set-upstream origin main
 }
 
+funciton biosketch()
+{
+  git add jing_cv.*
+  git commit -m "biosketch"
+  git push
+}
+
 # create_github_repository
 # rest
 
