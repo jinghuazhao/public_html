@@ -32,7 +32,7 @@ function rest()
 
 funciton biosketch()
 {
-  git add jing_cv.*
+  git add cv.*
   git commit -m "biosketch"
   git push
 }
