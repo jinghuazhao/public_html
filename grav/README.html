@@ -1,0 +1,195 @@
+<h1 id="grav"><img
+src="https://avatars1.githubusercontent.com/u/8237355?v=2&amp;s=50" />
+Grav</h1>
+<p><a href="https://github.com/phpstan/phpstan"><img
+src="https://img.shields.io/badge/PHPStan-enabled-brightgreen.svg?style=flat"
+alt="PHPStan" /></a> <a href="https://chat.getgrav.org"><img
+src="https://img.shields.io/discord/501836936584101899.svg?logo=discord&amp;colorB=728ADA&amp;label=Discord%20Chat"
+alt="Discord" /></a> <a
+href="https://github.com/getgrav/grav/actions?query=workflow%3A%22PHP+Tests%22"><img
+src="https://github.com/getgrav/grav/workflows/PHP%20Tests/badge.svg?branch=develop"
+alt="PHP Tests" /></a> <a href="#backers"><img
+src="https://opencollective.com/grav/tiers/backers/badge.svg?label=Backers&amp;color=brightgreen"
+alt="OpenCollective" /></a> <a href="#supporters"><img
+src="https://opencollective.com/grav/tiers/supporters/badge.svg?label=Supporters&amp;color=brightgreen"
+alt="OpenCollective" /></a> <a href="#sponsors"><img
+src="https://opencollective.com/grav/tiers/sponsors/badge.svg?label=Sponsors&amp;color=brightgreen"
+alt="OpenCollective" /></a></p>
+<p>Grav is a <strong>Fast</strong>, <strong>Simple</strong>, and
+<strong>Flexible</strong>, file-based Web-platform. There is
+<strong>Zero</strong> installation required. Just extract the ZIP
+archive, and you are already up and running. It follows similar
+principles to other flat-file CMS platforms, but has a different design
+philosophy than most. Grav comes with a powerful <strong>Package
+Management System</strong> to allow for simple installation and
+upgrading of plugins and themes, as well as simple updating of Grav
+itself.</p>
+<p>The underlying architecture of Grav is designed to use
+well-established and <em>best-in-class</em> technologies to ensure that
+Grav is simple to use and easy to extend. Some of these key technologies
+include:</p>
+<ul>
+<li><a href="https://twig.symfony.com/">Twig Templating</a>: for
+powerful control of the user interface</li>
+<li><a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a>: for
+easy content creation</li>
+<li><a href="https://yaml.org">YAML</a>: for simple configuration</li>
+<li><a href="https://parsedown.org/">Parsedown</a>: for fast Markdown
+and Markdown Extra support</li>
+<li><a
+href="https://www.doctrine-project.org/projects/doctrine-orm/en/latest/reference/caching.html">Doctrine
+Cache</a>: layer for performance</li>
+<li><a href="https://github.com/silexphp/Pimple">Pimple Dependency
+Injection Container</a>: for extensibility and maintainability</li>
+<li><a
+href="https://symfony.com/doc/current/components/event_dispatcher/introduction.html">Symfony
+Event Dispatcher</a>: for plugin event handling</li>
+<li><a
+href="https://symfony.com/doc/current/components/console/introduction.html">Symfony
+Console</a>: for CLI interface</li>
+<li><a href="https://github.com/Gregwar/Image">Gregwar Image
+Library</a>: for dynamic image manipulation</li>
+</ul>
+<h1 id="requirements">Requirements</h1>
+<ul>
+<li>PHP 7.3.6 or higher. Check the <a
+href="https://learn.getgrav.org/basics/requirements#php-requirements">required
+modules list</a></li>
+<li>Check the <a
+href="https://learn.getgrav.org/basics/requirements#apache-requirements">Apache</a>
+or <a
+href="https://learn.getgrav.org/basics/requirements#iis-requirements">IIS</a>
+requirements</li>
+</ul>
+<h1 id="documentation">Documentation</h1>
+<p>The full documentation can be found from <a
+href="https://learn.getgrav.org">learn.getgrav.org</a>.</p>
+<h1 id="quickstart">QuickStart</h1>
+<p>These are the options to get Grav:</p>
+<h3 id="downloading-a-grav-package">Downloading a Grav Package</h3>
+<p>You can download a <strong>ready-built</strong> package from the <a
+href="https://getgrav.org/downloads">Downloads page on
+https://getgrav.org</a></p>
+<h3 id="with-composer">With Composer</h3>
+<p>You can create a new project with the latest <strong>stable</strong>
+Grav release with the following command:</p>
+<pre><code>$ composer create-project getgrav/grav ~/webroot/grav</code></pre>
+<h3 id="from-github">From GitHub</h3>
+<ol type="1">
+<li><p>Clone the Grav repository from <a
+href="">https://github.com/getgrav/grav</a> to a folder in the webroot
+of your server, e.g. <code>~/webroot/grav</code>. Launch a
+<strong>terminal</strong> or <strong>console</strong> and navigate to
+the webroot folder:</p>
+<pre><code>$ cd ~/webroot
+$ git clone https://github.com/getgrav/grav.git</code></pre></li>
+<li><p>Install the <strong>plugin</strong> and <strong>theme
+dependencies</strong> by using the <a
+href="https://learn.getgrav.org/advanced/grav-cli">Grav CLI
+application</a> <code>bin/grav</code>:</p>
+<pre><code>$ cd ~/webroot/grav
+$ bin/grav install</code></pre></li>
+</ol>
+<p>Check out the <a
+href="https://learn.getgrav.org/basics/installation">install
+procedures</a> for more information.</p>
+<h1 id="adding-functionality">Adding Functionality</h1>
+<p>You can download <a
+href="https://getgrav.org/downloads/plugins">plugins</a> or <a
+href="https://getgrav.org/downloads/themes">themes</a> manually from the
+appropriate tab on the <a href="https://getgrav.org/downloads">Downloads
+page on https://getgrav.org</a>, but the preferred solution is to use
+the <a href="https://learn.getgrav.org/advanced/grav-gpm">Grav Package
+Manager</a> or <code>GPM</code>:</p>
+<pre><code>$ bin/gpm index</code></pre>
+<p>This will display all the available plugins and then you can install
+one or more with:</p>
+<pre><code>$ bin/gpm install &lt;plugin/theme&gt;</code></pre>
+<h1 id="updating">Updating</h1>
+<p>To update Grav you should use the <a
+href="https://learn.getgrav.org/advanced/grav-gpm">Grav Package
+Manager</a> or <code>GPM</code>:</p>
+<pre><code>$ bin/gpm selfupgrade</code></pre>
+<p>To update plugins and themes:</p>
+<pre><code>$ bin/gpm update</code></pre>
+<h2 id="upgrading-from-older-version">Upgrading from older version</h2>
+<ul>
+<li><a
+href="https://learn.getgrav.org/16/advanced/grav-development/grav-17-upgrade-guide">Upgrading
+to Grav 1.7</a></li>
+<li><a
+href="https://learn.getgrav.org/16/advanced/grav-development/grav-16-upgrade-guide">Upgrading
+to Grav 1.6</a></li>
+<li><a
+href="https://learn.getgrav.org/16/advanced/grav-development/grav-15-upgrade-guide">Upgrading
+from Grav &lt;1.6</a></li>
+</ul>
+<h1 id="contributing">Contributing</h1>
+<p>We appreciate any contribution to Grav, whether it is related to
+bugs, grammar, or simply a suggestion or improvement! Please refer to
+the <a href="CONTRIBUTING.md">Contributing guide</a> for more guidance
+on this topic.</p>
+<h2 id="security-issues">Security issues</h2>
+<p>If you discover a possible security issue related to Grav or one of
+its plugins, please email the core team at contact@getgrav.org and we’ll
+address it as soon as possible.</p>
+<h1 id="getting-started">Getting Started</h1>
+<ul>
+<li><a href="https://learn.getgrav.org/basics/what-is-grav">What is
+Grav?</a></li>
+<li><a href="https://learn.getgrav.org/basics/installation">Install</a>
+Grav in few seconds</li>
+<li>Understand the <a
+href="https://learn.getgrav.org/basics/grav-configuration">Configuration</a></li>
+<li>Take a peek at our available free <a
+href="https://getgrav.org/downloads/skeletons">Skeletons</a></li>
+<li>If you have questions, jump on our <a
+href="https://chat.getgrav.org">Discord Chat Server</a>!</li>
+<li>Have fun!</li>
+</ul>
+<h1 id="exploring-more">Exploring More</h1>
+<ul>
+<li>Have a look at our <a
+href="https://learn.getgrav.org/basics/basic-tutorial">Basic
+Tutorial</a></li>
+<li>Dive into more <a
+href="https://learn.getgrav.org/advanced">advanced</a> functions</li>
+<li>Learn about the <a
+href="https://learn.getgrav.org/cli-console/grav-cli">Grav CLI</a></li>
+<li>Review examples in the <a
+href="https://learn.getgrav.org/cookbook">Grav Cookbook</a></li>
+<li>More <a href="https://github.com/getgrav/awesome-grav">Awesome Grav
+Stuff</a></li>
+</ul>
+<h1 id="backers">Backers</h1>
+<p>Support Grav with a monthly donation to help us continue development.
+[<a href="https://opencollective.com/grav/contribute">Become a
+backer</a>]</p>
+<p><img src="https://opencollective.com/grav/tiers/backers.svg?avatarHeight=36&width=600" /></p>
+<h1 id="supporters">Supporters</h1>
+<p>Support Grav with a monthly donation to help us continue development.
+[<a href="https://opencollective.com/grav/contribute">Become a
+supporter</a>]</p>
+<p><img src="https://opencollective.com/grav/tiers/supporters.svg?avatarHeight=36&width=600" /></p>
+<h1 id="sponsors">Sponsors</h1>
+<p>Support Grav with a yearly donation to help us continue development.
+[<a href="https://opencollective.com/grav/contribute">Become a
+sponsor</a>]</p>
+<p><img src="https://opencollective.com/grav/tiers/sponsors.svg?avatarHeight=36&width=600" /></p>
+<h1 id="license">License</h1>
+<p>See <a href="LICENSE.txt">LICENSE</a></p>
+<h1 id="running-tests">Running Tests</h1>
+<p>First install the dev dependencies by running
+<code>composer install</code> from the Grav root.</p>
+<p>Then <code>composer test</code> will run the Unit Tests, which should
+be always executed successfully on any site. Windows users should use
+the <code>composer test-windows</code> command. You can also run a
+single unit test file,
+e.g. <code>composer test tests/unit/Grav/Common/AssetsTest.php</code></p>
+<p>To run phpstan tests, you should run:</p>
+<ul>
+<li><code>composer phpstan</code> for global tests</li>
+<li><code>composer phpstan-framework</code> for more strict tests</li>
+<li><code>composer phpstan-plugins</code> to test all installed
+plugins</li>
+</ul>
